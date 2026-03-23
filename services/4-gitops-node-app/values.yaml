@@ -4,7 +4,7 @@ replicaCount: 2
 image:
   repository: docker.io/diwakar5041/gitops-node-app
   pullPolicy: IfNotPresent
-  tag: "caf6caa8d35d84fae6ecde34f123f57544bc025d"
+  tag: "700e973b1feadae6c478339e346bef089e58e3cb"
 
 imagePullSecrets: []
 nameOverride: ""
