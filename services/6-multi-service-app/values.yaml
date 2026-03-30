@@ -1,16 +1,16 @@
 user:
   image: diwakar5041/user-service
-  tag: "20bb73b6cd273d975bbed2f4c6de7ba53e5fae37"
+  tag: "a562478234f29d0968641926add209ee64d4fb7f"
   port: 3000
 
 product:
   image: diwakar5041/product-service
-  tag: "20bb73b6cd273d975bbed2f4c6de7ba53e5fae37"
+  tag: "a562478234f29d0968641926add209ee64d4fb7f"
   port: 3000
 
 gateway:
   image: diwakar5041/api-gateway
-  tag: "20bb73b6cd273d975bbed2f4c6de7ba53e5fae37"
+  tag: "a562478234f29d0968641926add209ee64d4fb7f"
   port: 3000
 
 ingress: 
