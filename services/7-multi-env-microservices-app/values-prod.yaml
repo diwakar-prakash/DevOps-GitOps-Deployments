@@ -1,14 +1,14 @@
 user:
-  tag: "582bdb45160127cceb702e8bff7800adda1d2431"
+  tag: "372de27dd76ac0366b29f1ad956f87a2491866e4"
 
 product:
-  tag: "582bdb45160127cceb702e8bff7800adda1d2431"
+  tag: "372de27dd76ac0366b29f1ad956f87a2491866e4"
 
 order:
-  tag: "582bdb45160127cceb702e8bff7800adda1d2431"
+  tag: "372de27dd76ac0366b29f1ad956f87a2491866e4"
 
 gateway:
-  tag: "582bdb45160127cceb702e8bff7800adda1d2431"
+  tag: "372de27dd76ac0366b29f1ad956f87a2491866e4"
 
 ingress:
   host: prod.myapp.local
