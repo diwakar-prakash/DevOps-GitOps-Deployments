@@ -1,0 +1,23 @@
+user:
+  image: diwakar5041/user-service
+  tag: "latest"
+  port: 3000
+
+product:
+  image: diwakar5041/product-service
+  tag: "latest"
+  port: 3000
+
+order:
+  image: diwakar5041/order-service
+  tag: "latest"
+  port: 3000
+
+gateway:
+  image: diwakar5041/api-gateway
+  tag: "latest"
+  port: 3000
+
+ingress:
+  enabled: true
+  host: myapp.local

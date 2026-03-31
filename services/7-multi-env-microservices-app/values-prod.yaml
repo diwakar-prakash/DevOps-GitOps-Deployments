@@ -1,0 +1,15 @@
+user:
+  tag: "latest"
+
+product:
+  tag: "latest"
+
+order:
+  tag: "latest"
+
+gateway:
+  tag: "latest"
+
+ingress:
+  host: prod.myapp.local
+

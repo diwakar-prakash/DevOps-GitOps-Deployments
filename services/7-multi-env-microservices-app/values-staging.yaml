@@ -1,0 +1,15 @@
+user:
+  tag: "staging"
+
+product:
+  tag: "staging"
+
+order:
+  tag: "staging"
+
+gateway:
+  tag: "staging"
+
+ingress:
+  host: staging.myapp.local
+

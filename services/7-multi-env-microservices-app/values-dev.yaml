@@ -1,0 +1,15 @@
+user:
+  tag: "dev"
+
+product:
+  tag: "dev"
+
+order:
+  tag: "dev"
+
+gateway:
+  tag: "dev"
+
+ingress:
+  host: dev.myapp.local
+
