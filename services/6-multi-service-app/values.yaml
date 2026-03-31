@@ -15,4 +15,7 @@ gateway:
 
 ingress: 
   enabled: true
-  host: myapp.local
+  host: vivek.harsh
+
+
+
