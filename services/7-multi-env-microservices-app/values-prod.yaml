@@ -1,14 +1,14 @@
 user:
-  tag: "latest"
+  tag: "582bdb45160127cceb702e8bff7800adda1d2431"
 
 product:
-  tag: "latest"
+  tag: "582bdb45160127cceb702e8bff7800adda1d2431"
 
 order:
-  tag: "latest"
+  tag: "582bdb45160127cceb702e8bff7800adda1d2431"
 
 gateway:
-  tag: "latest"
+  tag: "582bdb45160127cceb702e8bff7800adda1d2431"
 
 ingress:
   host: prod.myapp.local
