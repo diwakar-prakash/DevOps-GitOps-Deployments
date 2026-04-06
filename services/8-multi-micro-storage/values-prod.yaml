@@ -1,7 +1,7 @@
 replicaCount: 3
 
 image:
-  tag: prod
+  tag: latest
 
 postgres:
   storage: 400Mi
