@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-gateway
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: app-gateway
+  template:
+    metadata:
+      labels:
+        app: app-gateway
+    spec:
+      containers:
+        - name: app-gateway
+          image: "{{ .Values.gateway.image }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.gateway.port }}
+

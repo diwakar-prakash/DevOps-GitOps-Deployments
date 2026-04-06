@@ -1,1 +1,27 @@
-  
+replicaCount: 1
+
+image:
+  tag: latest
+
+user:
+  image: diwakar5041/user-service
+  port: 3001
+
+product:
+  image: diwakar5041/product-service
+  port: 3001
+
+order: 
+  image: diwakar5041/order-service
+  port: 3001
+
+gateway:
+  image: diwakar5041/app-gateway
+  port: 3001
+
+postgres:
+  user: admin
+  password: password
+  database: mydb
+  storage: 300Mi
+
