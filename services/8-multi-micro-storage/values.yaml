@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  tag: "8bf63362682ef22cc7ec318c95e6b1d3d678312e"
+  tag: "15a754a35ed0a408be4bae8dfeb893da7e5e13f8"
 
 user:
   image: diwakar5041/user-service
