@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: product-service
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: product-service
+  template:
+    metadata:
+      labels:
+        app: product-service
+    spec:
+      containers:
+        - name: product-service
+          image: "{{ .Values.product.image }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.product.port }}
+
+          env:
+            - name: APP_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: APP_NAME
+
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: SECRET_KEY
+
+          startupProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.product.port }}
+            failureThreshold: 40
+            periodSeconds: 5
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.product.port }}
+            initialDelaySeconds: 0
+            periodSeconds: 10
+
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: {{ .Values.product.port }}
+            initialDelaySeconds: 0
+            periodSeconds: 5
+
+
