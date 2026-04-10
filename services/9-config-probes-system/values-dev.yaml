@@ -1,0 +1,8 @@
+replicaCount: 1
+
+image:
+  tag: dev
+
+config:
+  appName: "Dev App"
+  

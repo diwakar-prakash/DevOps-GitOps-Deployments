@@ -1,0 +1,26 @@
+replicaCount: 1
+
+image:
+  tag: latest
+
+user:
+  image: diwakar5041/user-service
+  port: 3001
+
+product:
+  image: diwakar5041/product-service
+  port: 3001
+
+gateway:
+  image: diwakar5041/api-gateway
+  port: 3001
+
+config:
+  appName: "My App"
+
+secret:
+  secretKey: "mysecret"
+
+ingress:
+  host: myapp.local
+

@@ -1,0 +1,9 @@
+replicaCount: 2
+
+image:
+  tag: staging
+
+config:
+  appName: "Staging App"
+
+  
