@@ -1,0 +1,7 @@
+apiVersion: v1
+type: ConfigMap
+metadata:
+  name: app-config
+data:
+  APP_NAME: "{{ .Values.config.appName }}"
+

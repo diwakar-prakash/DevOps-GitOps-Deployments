@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      containers:
+        - name: user-service
+          image: "{{ .Values.user.image }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.user.port }}
+
+          env:
+            - name: APP_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: APP_NAME
+
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: SECRET_KEY
+
+          startupProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.user.port }}
+            failureThreshold: 40
+            periodSeconds: 5
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.user.port }}
+            initialDelaySeconds: 0
+            periodSeconds: 10
+
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: {{ .Values.user.port }}
+            initialDelaySeconds: 0
+            periodSeconds: 5
+
