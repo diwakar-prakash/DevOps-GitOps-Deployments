@@ -1,7 +1,7 @@
 replicaCount: 3
 
 image:
-  tag: latest
+  tag: "db8ebd503933afb205b20f8cd21878bb6ac447dd"
 
 config:
   appName: "Production App"
