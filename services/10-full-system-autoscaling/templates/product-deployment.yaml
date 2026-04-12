@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-product-service
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      apps: {{ .Release.Name }}-product-service
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-product-service
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-product-service
+          image: "{{ .Values.product.image }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.product.port }}
+
+          env:
+            - name: APP_NAME
+              valueFrom: 
+                configMapKeyRef:
+                  name: {{ .Release.Name }}-config
+                  key: APP_NAME
+
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-secret
+                  key: SECRET_KEY
+
+            - name: DB_HOST
+              value: "{{ .Release.Name }}-postgres"
+
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+
+          startupProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.product.port }}
+            failureThreshold: 50
+            periodSeconds: 6
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.product.port }}
+            initialDelaySeconds: 0
+            periodSeconds: 10
+
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: {{ .Values.product.port }}
+            initialDelaySeconds: 0
+            periodSeconds: 5
+
