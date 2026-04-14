@@ -1,0 +1,40 @@
+replicaCount: 1
+
+image:
+  tag: latest
+
+user:
+  image: diwakar5041/user-service
+  port: 3001
+
+product:
+  image: diwakar5041/product-service
+  port: 3001
+
+gateway:
+  image: diwakar5041/api-gateway
+  port: 3001
+
+postgres:
+  user: admin
+  password: password
+  db: mydb
+  storage: 1Gi
+
+config:
+  appName: "MY APP"
+
+secret:
+  secretKey: "mysecret"
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  
+ingress:
+  host: myapp.local
+  

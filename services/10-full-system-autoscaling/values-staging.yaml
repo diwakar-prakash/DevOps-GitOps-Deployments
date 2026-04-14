@@ -1,0 +1,22 @@
+replicaCount: 2
+
+image:
+  tag: staging
+
+postgres:
+  storage: 512Mi
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+
+config:
+  appName: "Staging App"
+
+ingress:
+  host: staging.myapp.local
+

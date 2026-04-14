@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  tag: dev
+
+postgres:
+  storage: 500Mi
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 100m
+    memory: 128Mi
+
+config:
+  appName: "Dev App"
+
+ingress: 
+  host: dev.myapp.local
+

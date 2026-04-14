@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-api-gateway
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-api-gateway
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-api-gateway
+    spec:
+      containers:
+        - name: api-gateway
+          image: "{{ .Values.gateway.image }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.gateway.port }}
+
+          env:
+            - name: USER_SERVICE_URL
+              value: "http://{{ .Release.Name }}-user-service:{{ .Values.user.port }}"
+
+            - name: PRODUCT_SERVICE_URL
+              value: "http://{{ .Release.Name }}-product-service:{{ .Values.product.port }}"
+
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+
+          startupProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.gateway.port }}
+            failureThreshold: 50
+            periodSeconds: 6
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.gateway.port }}
+            initialDelaySeconds: 0
+            periodSeconds: 10
+
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: {{ .Values.gateway.port }}
+            initialDelaySeconds: 0
+            periodSeconds: 5
+

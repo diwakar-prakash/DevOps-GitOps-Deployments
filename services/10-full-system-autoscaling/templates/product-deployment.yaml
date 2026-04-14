@@ -6,14 +6,14 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      apps: {{ .Release.Name }}-product-service
+      app: {{ .Release.Name }}-product-service
   template:
     metadata:
       labels:
         app: {{ .Release.Name }}-product-service
     spec:
       containers:
-        - name: {{ .Release.Name }}-product-service
+        - name: product-service
           image: "{{ .Values.product.image }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: {{ .Values.product.port }}
