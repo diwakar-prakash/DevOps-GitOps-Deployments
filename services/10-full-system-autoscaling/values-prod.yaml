@@ -1,7 +1,7 @@
 replicaCount: 3
 
 image:
-  tag: ""
+  tag: "c815010d288095c6e5aa4e2e3d0dd73c5624982f"
 
 postgres:
   storage: 1Gi
