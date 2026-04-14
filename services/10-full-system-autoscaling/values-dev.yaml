@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  tag: dev
+  tag: ""
 
 postgres:
   storage: 500Mi
