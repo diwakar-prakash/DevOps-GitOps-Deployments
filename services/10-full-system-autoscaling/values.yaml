@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  tag: ""
+  tag: latest
 
 user:
   image: diwakar5041/user-service
