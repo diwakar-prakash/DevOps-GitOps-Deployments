@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-gateway
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-gateway
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-gateway
+    spec:
+      containers:
+        - name: gateway
+          image: {{ .Values.gateway.image }}:{{ .Values.gateway.tag }}
+          ports:
+            - containerPort: {{ .Values.gateway.port }}
+
+          env:
+            - name: APP_NAME
+              valueFrom: 
+                configMapKeyRef:
+                  name: {{ .Release.Name }}-config
+                  key: APP_NAME
+
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-secret
+                  key: SECRET_KEY
+
+          resources:
+            requests:
+              cpu: {{ .Values.resources.resources.cpu }}
+              memory: {{ .Values.resources.resources.memory }}
+            
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+          
+          startupProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.gateway.port }}
+            failureThreshold: 50
+            periodSeconds: 6
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.gateway.port }}
+            initialDelaySeconds: 0
+            periodSeconds: 10
+
+          readinessProbe: 
+            httpGet:
+              path: /ready
+              port: {{ .Values.gateway.port }}
+            initialDelaySeconds: 0
+            periodSeconds: 5
+
+
