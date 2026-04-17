@@ -14,24 +14,30 @@ spec:
     spec:
       containers:
         - name: product
-          image: {{ .Values.product.image }}:{{ .Values.product.tag }}
+          image: "{{ .Values.product.image }}:{{ .Values.product.tag }}"
           ports:
             - containerPort: {{ .Values.product.port }}
 
           env:
-            - name: USER_SERVICE
-              value: "http://{{ .Release.Name }}-user:{{ .Values.user.port }}"
+            - name: APP_NAME
+              valueFrom: 
+                configMapKeyRef:
+                  name: {{ .Release.Name }}-config
+                  key: APP_NAME
 
-            - name: PRODUCT_SERVICE
-              value: "http://{{ .Release.Name }}-product:{{ .Values.product.port }}"
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-secret
+                  key: SECRET_KEY
 
             - name: DB_HOST
               value: "{{ .Release.Name }}-postgres"
 
           resources:
             requests:
-              cpu: {{ .Values.resources.resources.cpu }}
-              memory: {{ .Values.resources.resources.memory }}
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
             
             limits:
               cpu: {{ .Values.resources.limits.cpu }}

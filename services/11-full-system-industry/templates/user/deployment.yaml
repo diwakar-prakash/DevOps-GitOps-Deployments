@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: user
-          image: {{ .Values.user.image }}:{{ .Values.user.tag }}
+          image: "{{ .Values.user.image }}:{{ .Values.user.tag }}"
           ports:
             - containerPort: {{ .Values.user.port }}
 
@@ -36,8 +36,8 @@ spec:
               
           resources:
             requests:
-              cpu: {{ .Values.resources.resources.cpu }}
-              memory: {{ .Values.resources.resources.memory }}
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
             
             limits:
               cpu: {{ .Values.resources.limits.cpu }}

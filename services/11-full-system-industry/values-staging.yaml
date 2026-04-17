@@ -1,0 +1,20 @@
+replicaCount: 2
+
+user:
+  tag: staging
+
+product:
+  tag: staging
+
+gateway:
+  tag: staging
+
+postgres:
+  storage: 512Mi
+
+config:
+  appName: "Staging App"
+
+ingress:
+  host: staging.myapp.local
+

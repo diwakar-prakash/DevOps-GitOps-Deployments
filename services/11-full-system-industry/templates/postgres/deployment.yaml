@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}-postgres
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
       app: {{ .Release.Name }}-postgres
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: {{ .Values.postgres.image }}:{{ .Values.postgres.tag }}
+          image: "{{ .Values.postgres.image }}:{{ .Values.postgres.tag }}"
           ports:
             - containerPort: 5432
 
@@ -35,6 +35,6 @@ spec:
       volumes:
         - name: postgres-storage
           persistentVolumeClaim:
-            claimName: {{ .Release.Name }}-postgres
+            claimName: {{ .Release.Name }}-postgres-pvc
 
 
