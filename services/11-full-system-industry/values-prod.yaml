@@ -1,17 +1,12 @@
 replicaCount: 3
-
 user:
-  tag: latest
-
+  tag: c6c8bba91c6358d4f24f4ccdfa080fa9dd1e8c1a
 product:
-  tag: latest
-
+  tag: c6c8bba91c6358d4f24f4ccdfa080fa9dd1e8c1a
 gateway:
-  tag: latest
-
+  tag: c6c8bba91c6358d4f24f4ccdfa080fa9dd1e8c1a
 postgres:
   storage: 1Gi
-
 resources:
   requests:
     cpu: 100m
@@ -19,10 +14,7 @@ resources:
   limits:
     cpu: 200m
     memory: 256Mi
-
 config:
   appName: "Production App"
-
 ingress:
   host: myapp.com
-
