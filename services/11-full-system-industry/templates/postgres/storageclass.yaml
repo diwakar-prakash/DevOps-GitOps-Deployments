@@ -2,7 +2,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: {{ .Release.Name }}-storage
-provisioner: k8s.io/minikube-hostpath
+provisioner: ebs.csi.aws.com
 reclaimPolicy: Retain
 volumeBindingMode: Immediate
 
