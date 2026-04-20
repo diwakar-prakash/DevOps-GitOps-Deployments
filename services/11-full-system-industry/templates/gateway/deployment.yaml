@@ -21,10 +21,10 @@ spec:
 
           env:
             - name: USER_SERVICE_URL
-              value: "http://{{ .Release.Name }}-user.prod.svc.cluster.local:{{ .Values.user.port }}"
+              value: "http://{{ .Release.Name }}-user:{{ .Values.user.port }}"
 
             - name: PRODUCT_SERVICE_URL
-              value: "http://{{ .Release.Name }}-product.prod.svc.cluster.local:{{ .Values.product.port }}"
+              value: "http://{{ .Release.Name }}-product:{{ .Values.product.port }}"
 
             - name: DB_HOST
               value: "{{ .Release.Name }}-postgres"

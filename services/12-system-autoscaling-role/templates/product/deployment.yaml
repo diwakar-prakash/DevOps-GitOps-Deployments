@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - name: product-service
-          image: {{ .Values.user}}
+          image: {{ .Values.}}
