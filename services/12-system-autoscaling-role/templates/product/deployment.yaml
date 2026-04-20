@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-product
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-product
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-product
+    spec:
+      containers:
+        - name: product-service
+          image: {{ .Values.user}}

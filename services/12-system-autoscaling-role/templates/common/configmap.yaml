@@ -4,3 +4,4 @@ metadata:
   name: {{ .Release.Name }}-config
 data:
   APP_NAME: "{{ .Values.config.appName }}"
+

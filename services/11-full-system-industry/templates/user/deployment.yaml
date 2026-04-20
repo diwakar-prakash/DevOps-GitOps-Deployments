@@ -15,6 +15,7 @@ spec:
       containers:
         - name: user
           image: "{{ .Values.user.image }}:{{ .Values.user.tag }}"
+          imagePullPolicy: Always
           ports:
             - containerPort: {{ .Values.user.port }}
 
@@ -59,7 +60,7 @@ spec:
 
           readinessProbe: 
             httpGet:
-              path: /ready
+              path: /health
               port: {{ .Values.user.port }}
             initialDelaySeconds: 0
             periodSeconds: 5
