@@ -1,10 +1,10 @@
 replicaCount: 3
 user:
-  tag: d1a48a64987d3cf35a5e339f547ccc3c7516ab76
+  tag: 7e7d3089f38a4328780dbcb9fd2243c72efe0170
 product:
-  tag: d1a48a64987d3cf35a5e339f547ccc3c7516ab76
+  tag: 7e7d3089f38a4328780dbcb9fd2243c72efe0170
 gateway:
-  tag: d1a48a64987d3cf35a5e339f547ccc3c7516ab76
+  tag: 7e7d3089f38a4328780dbcb9fd2243c72efe0170
 postgres:
   storage: 1Gi
 resources:
