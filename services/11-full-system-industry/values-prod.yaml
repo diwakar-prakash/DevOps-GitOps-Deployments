@@ -16,5 +16,5 @@ resources:
     memory: 256Mi
 config:
   appName: "Production App"
-ingress:
-  host: myapp.com
+
+

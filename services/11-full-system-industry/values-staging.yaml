@@ -15,6 +15,5 @@ postgres:
 config:
   appName: "Staging App"
 
-ingress:
-  host: staging.myapp.local
+
 

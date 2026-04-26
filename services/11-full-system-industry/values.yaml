@@ -37,5 +37,4 @@ config:
 secret:
   secretKey: "mysecret"
 
-ingress:
-  host: myapp.local
+

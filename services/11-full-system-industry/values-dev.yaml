@@ -23,6 +23,5 @@ resources:
 config:
   appName: "Dev App"
 
-ingress:
-  host: dev.myapp.local
+
 
