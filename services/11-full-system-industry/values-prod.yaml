@@ -1,10 +1,10 @@
 replicaCount: 3
 user:
-  tag: 7e7d3089f38a4328780dbcb9fd2243c72efe0170
+  tag: 2daff87410cab8d28975b2eae29eda7580939a57
 product:
-  tag: 7e7d3089f38a4328780dbcb9fd2243c72efe0170
+  tag: 2daff87410cab8d28975b2eae29eda7580939a57
 gateway:
-  tag: 7e7d3089f38a4328780dbcb9fd2243c72efe0170
+  tag: 2daff87410cab8d28975b2eae29eda7580939a57
 postgres:
   storage: 1Gi
 resources:
@@ -16,5 +16,3 @@ resources:
     memory: 256Mi
 config:
   appName: "Production App"
-
-
