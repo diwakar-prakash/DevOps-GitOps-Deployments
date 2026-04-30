@@ -6,6 +6,6 @@ spec:
   selector:
     app: {{ .Release.Name }}-user
   ports:
-    - port: {{ .Release.user.port }}
-      targetPort: {{ .Release.user.port }}
+    - port: {{ .Values.user.port }}
+      targetPort: {{ .Values.user.port }}
 

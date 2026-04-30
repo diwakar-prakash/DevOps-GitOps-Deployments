@@ -26,9 +26,6 @@ spec:
             - name: PRODUCT_SERVICE_URL
               value: "http://{{ .Release.Name }}-product:{{ .Values.product.port }}"
 
-            - name: DB_HOST
-              value: "{{ .Release.Name }}-postgres"
-
           resources:
             requests:
               cpu: {{ .Values.resources.requests.cpu }}

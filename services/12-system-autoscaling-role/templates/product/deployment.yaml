@@ -31,6 +31,12 @@ spec:
                 secretKeyRef:
                   name: {{ .Release.Name }}-secret
                   key: SECRET_KEY
+
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-secret
+                  key: DB_PASSWORD
             
             - name: DB_HOST
               value: "{{ .Release.Name }}-postgres"
