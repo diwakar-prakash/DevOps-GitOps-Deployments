@@ -1,0 +1,18 @@
+replicaCount: 1
+
+postgres:
+  storage: 256Mi
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+
+config:
+  appName: "Development Application"
+
+secret:
+  secretKey: "mysecret"

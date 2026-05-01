@@ -1,0 +1,18 @@
+replicaCount: 2
+
+postgres:
+  storage: 512Mi
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+config:
+  appName: "Staging App"
+
+secret:
+  secretKey: "mysecret"
