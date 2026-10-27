@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata: 
+  name: {{ .Release.Name }}-gateway-config
+  namespace: {{ .Values.global.namespace }}
+  labels: {{- include "cloud-native-monitoring.labels" . | nindent 4 }}
+
+data:
+  PORT: "{{ .Values.gateway.port }}"
+  USER_SERVICE_URL: "http://{{ .Release.Name }}-user:3001"
+  PRODUCT_SERVICE_URL: "http://{{ .Release.Name }}-product:3002"
